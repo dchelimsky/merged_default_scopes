@@ -1,11 +1,20 @@
 # merged\_default\_scopes
 
-    default_scope :order => :name
-    default_scope :conditions => {:deleted_at => nil}
+    module SomeSoftDeletablePlugin
+      def self.included(mod)
+        mod.default_scope :conditions => {:deleted_at => nil}
+      end
+    end
+    
+    class SomeModel < ActiveRecord::Base
+      include SomeSoftDeletablePlugin # that may or may not be setting a default_scope
 
-    => {:find => {:order => :name, :conditions => {:deleted_at => nil}}}
+      default_scope :order => :name
+    end
 
-... and all is right with the world
+    # default_scope => {:find => {:order => :name, :conditions => {:deleted_at => nil}}}
+    #
+    # ... and all is right with the world
 
 ## Note on Patches/Pull Requests
  
