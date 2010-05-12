@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "merged_default_scopes"
     gem.summary = %Q{the name says it all}
-    gem.description = %Q{modify behavior of default_scope method to merge rather than override}
+    gem.description = %Q{modify behavior of ActiveRecord::Base::default_scope to merge rather than overwrite}
     gem.email = "dchelimsky@gmail.com,btatnall@gmail.com"
     gem.homepage = "http://github.com/dchelimsky/merged_default_scopes"
     gem.authors = ["David Chelimsky", "Brian Tatnall"]
