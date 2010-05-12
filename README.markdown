@@ -1,18 +1,21 @@
 # merged\_default\_scopes
 
-    module SomeSoftDeletablePlugin
+    require 'merged_default_scopes' 
+    
+    module SomePlugin
       def self.included(mod)
         mod.default_scope :conditions => {:deleted_at => nil}
       end
     end
     
     class SomeModel < ActiveRecord::Base
-      include SomeSoftDeletablePlugin # that may or may not be setting a default_scope
+      include SomePlugin
 
       default_scope :order => :name
     end
-
-    # default_scope => {:find => {:order => :name, :conditions => {:deleted_at => nil}}}
+    
+    SomeModel.__send__(:scope, :find)
+    # => {:order => :name, :conditions => {:deleted_at => nil}}
     #
     # ... and all is right with the world
 
@@ -20,17 +23,17 @@
 
     $ gem install merged_default_scopes
 
-## Configure
-
-    require 'merged_default_scopes'
-    # attaches itself to ActiveRecord::Base
-    
 ## Contribute
  
-* Fork the project on github.
+* [Fork the project](http://github.com/dchelimsky/merged_default_scopes)
 * Make the code better with a new feature, bug fix, or refactoring.
   * New features and bug fixes should have specs.
 * Send us a pull request.
+
+## Learn more
+
+* [code/docs](http://github.com/dchelimsky/merged_default_scopes)
+* [issues](http://github.com/dchelimsky/merged_default_scopes/issues)
 
 ## Copyright
 
