@@ -25,4 +25,4 @@
 
 ## Copyright
 
-Copyright (c) 2010 David Chelimsky and Brain Tatnall. See LICENSE for details.
+Copyright (c) 2010 David Chelimsky and Brian Tatnall. See LICENSE for details.
