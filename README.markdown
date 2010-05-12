@@ -16,11 +16,20 @@
     #
     # ... and all is right with the world
 
-## Note on Patches/Pull Requests
+## Install
+
+    $ gem install merged_default_scopes
+
+## Configure
+
+    require 'merged_default_scopes'
+    # attaches itself to ActiveRecord::Base
+    
+## Contribute
  
-* Fork the project.
+* Fork the project on github.
 * Make the code better with a new feature, bug fix, or refactoring.
-  * New features and bug fixes won't be accepted without specs.
+  * New features and bug fixes should have specs.
 * Send us a pull request.
 
 ## Copyright
