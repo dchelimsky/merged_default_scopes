@@ -19,6 +19,11 @@
     #
     # ... and all is right with the world
 
+## Motivation
+
+Sometimes plugins use `default_scope` to do what they do. We need a means of adding to
+the default scope without blowing it away.
+
 ## Install
 
     $ gem install merged_default_scopes
