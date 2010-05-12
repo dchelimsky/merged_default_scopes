@@ -23,12 +23,9 @@ describe MergedDefaultScopes do
       SomeModel.__send__ :default_scope, :order => :name
       SomeModel.__send__ :default_scope, :conditions => {:deleted_at => nil}
     end
-    it "does not append scope" do
-      SomeModel.__send__(:default_scoping).length.should == 1
-    end
 
     it "merges multiple calls" do
-      SomeModel.__send__(:default_scoping)[0][:find].
+      SomeModel.__send__(:scope, :find).
         should == {:order => :name, :conditions => {:deleted_at => nil}}
     end
   end
