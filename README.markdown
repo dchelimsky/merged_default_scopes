@@ -19,6 +19,25 @@
     #
     # ... and all is right with the world
 
+# clear\_default\_scope
+
+    require 'merged_default_scopes' 
+    
+    class SomeModel < ActiveRecord::Base
+      include SomePluginThatMightSetDefaultScope
+      include AnotherPluginThatMightSetDefaultScope
+
+      clear_default_scope
+      default_scope :order => :name
+    end
+    
+    SomeModel.__send__(:scope, :find)
+    # => {:order => :name}
+    #
+    # ... and all is right with the world, assuming you want the old
+    # behaviour of default_scope, which is to overwrite previously set
+    # default scopes
+
 ## Motivation
 
 Sometimes plugins use `default_scope` to do what they do. We need a means of adding to
