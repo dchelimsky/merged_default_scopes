@@ -43,6 +43,10 @@
 Sometimes plugins use `default_scope` to do what they do. We need a means of adding to
 the default scope without blowing it away.
 
+This is going to be the behaviour of default_scope and clear_default_scope in
+rails-3 (as of http://github.com/rails/rails/commit/35a114a8941cb22d29a536f1215a23a8cf7c4756),
+so this gem serves as a back-port to rails-2.
+
 ## Install
 
     $ gem install merged_default_scopes

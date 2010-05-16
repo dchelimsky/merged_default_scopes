@@ -1,3 +1,7 @@
+# Version 0.0.3 / 2010-05-16
+
+* add clear_default_scope
+
 # Version 0.0.2 / 2010-05-12
 
 * Now it actually works!
