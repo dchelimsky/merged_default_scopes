@@ -12,6 +12,10 @@ module MergedDefaultScopes
         end
       end
     end
+
+    def clear_default_scope
+      scoped_methods.clear
+    end
   end
 
   def self.included(mod)
