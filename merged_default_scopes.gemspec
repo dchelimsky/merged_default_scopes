@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{merged_default_scopes}
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Chelimsky", "Brian Tatnall"]
-  s.date = %q{2010-05-12}
+  s.date = %q{2010-05-16}
   s.description = %q{modify behavior of ActiveRecord::Base::default_scope to merge rather than overwrite}
   s.email = %q{dchelimsky@gmail.com,btatnall@gmail.com}
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "autotest/discover.rb",
      "lib/merged_default_scopes.rb",
      "merged_default_scopes.gemspec",
+     "spec/db/schema.rb",
      "spec/merged_default_scopes_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -39,7 +40,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.6}
   s.summary = %q{the name says it all}
   s.test_files = [
-    "spec/merged_default_scopes_spec.rb",
+    "spec/db/schema.rb",
+     "spec/merged_default_scopes_spec.rb",
      "spec/spec_helper.rb"
   ]
 
