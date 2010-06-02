@@ -4,16 +4,20 @@ require "active_record/base"
 module MergedDefaultScopes
   module ClassMethods
     def default_scope(options = {})
-      if scoped_methods
-        with_scope(:find => options, :create => options[:conditions].is_a?(Hash) ? options[:conditions] : {}) do
-          scoped_methods << scoped_methods.last
-        end
+      new_scope = { :find => options, :create => options[:conditions].is_a?(Hash) ? options[:conditions] : {} }
+      if scoped_methods.empty?
+        self.default_scoping << new_scope
+        self.scoped_methods << new_scope
       else
-        super(options)
+        with_scope(new_scope) do
+          self.default_scoping << current_scoped_methods
+          self.scoped_methods << current_scoped_methods
+        end
       end
     end
 
     def clear_default_scope
+      default_scoping.clear
       scoped_methods.clear
     end
   end

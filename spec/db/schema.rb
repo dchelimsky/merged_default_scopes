@@ -4,4 +4,3 @@ ActiveRecord::Schema.define(:version => 0) do
     t.column :name, :string
   end
 end
-
